@@ -1,0 +1,17 @@
+<div class="container-fluid mt-3">
+
+@if(movieList && movieList.length){
+  @for(film of movieList;track $index){
+    <h2>{{film.title}}</h2>
+
+    @if(film.overview){
+      <p> {{film.overview}} </p>
+    }@else {
+      <p>Questo film non ha una trama disponibile</p>
+    }
+    <br>
+  }
+}@else {
+  <span>Contenuto in caricamento...</span>
+}
+</div>
