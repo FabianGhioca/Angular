@@ -1,17 +1,41 @@
-<form #ngForm = "ngForm" (ngSubmit)="submitForm()">
+<form (ngSubmit)="submitForm()" [formGroup]="form">
   <div class="container-fluid">
     <mat-form-field appearance="fill">
       <mat-label>Nome</mat-label>
-      <input required maxlength="25" matInput type="text" name="nome">
-      <span> {{getErrorMessage(true)}} </span>
+      <input formControlName="nome" maxlength="25" matInput type="text" name="nome">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Cognome</mat-label>
-      <input required maxlength="25" matInput type="text" name="cognome">
-      <span> {{getErrorMessage(true)}} </span>
+      <input formControlName="cognome" required maxlength="25" matInput type="text" name="cognome">
     </mat-form-field>
 
-    <button matButton="filled" type="submit">Invia form</button>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input formControlName="password" required matInput type="password" name="password" placeholder="Password">
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>Conferma password</mat-label>
+            <input formControlName="ConfermaPassword" required matInput type="password" name="ConfermaPassword" placeholder="ConfermaPassword">
+          </mat-form-field>
+        </div>
+      </div>
+
+      @if(form.errors && form.errors['mismatch']){
+        <mat-error>Le password non coincidono</mat-error>
+      }
+
+      <div class="row">
+        <div class="col">
+          <button matButton="filled" type="submit">Invia form</button>
+        </div>
+      </div>
+
+
   </div>
-</form>
