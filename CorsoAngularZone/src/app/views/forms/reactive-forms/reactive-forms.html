@@ -1,0 +1,17 @@
+<form #ngForm = "ngForm" (ngSubmit)="submitForm()">
+  <div class="container-fluid">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input required maxlength="25" matInput type="text" name="nome">
+      <span> {{getErrorMessage(true)}} </span>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cognome</mat-label>
+      <input required maxlength="25" matInput type="text" name="cognome">
+      <span> {{getErrorMessage(true)}} </span>
+    </mat-form-field>
+
+    <button matButton="filled" type="submit">Invia form</button>
+  </div>
+</form>
